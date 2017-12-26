@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cassert>
 #include <gmp.h>
 #include <map>
 #include <fstream>
@@ -10,7 +9,7 @@ using big = mpz_t;
 int main() {
     int iteration = 3;
     unsigned long interval_size = 10000000;
-    int pow = 2048;
+    int pow = 1024;
 
     big tested, p1, p2, res, two, l;
     mpz_init(res);
@@ -45,7 +44,7 @@ int main() {
     }
 
     ofstream f;
-    f.open("../out4.csv");
+    f.open("results/pow_1024.csv");
     f << "difference,count" << endl;
     for (const auto& kv : data) {
         f << kv.first << "," << kv.second << endl;
